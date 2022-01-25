@@ -11,7 +11,7 @@ Uses a [binary insert sort](https://en.wikipedia.org/wiki/Insertion_sort) to pri
 
 python nightingale.py
 
-Is A bigger than B?
+Is A more importan than B?
 A:  ['MLA citation format duplicates the publisher name for some DOIs\n']
 B:  ['Improve error message from json api\n']
 T
