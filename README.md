@@ -1,7 +1,7 @@
 # Nightingale - Bug prioritisator
 
 
-<img src="https://i1.wp.com/komotoz.ru/photo/zhivotnye/images/solovey/solovey_10.jpg" width="200" >
+<img src="https://i1.wp.com/komotoz.ru/photo/zhivotnye/images/solovey/solovey_10.jpg" width="300" >
 
 Uses a binary insert sort to prioritarise bugs (from github issues) in terms of importance.
 
