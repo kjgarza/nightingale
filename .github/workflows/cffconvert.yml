@@ -17,7 +17,13 @@ jobs:
         uses: citation-file-format/cffconvert-github-action@2.0.0
         with:
           args: "--validate"
-          
+  convert:
+    name: "convert"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out a copy of the repository
+        uses: actions/checkout@v2
+        
       - name: Convert CITATION.cff to Zenodo metadata format
         uses: citation-file-format/cffconvert-github-action@2.0.0
         with:
@@ -35,3 +41,4 @@ jobs:
           git add .zenodo.json
           git add .codemeta.json
           git commit -m "Automated update of Zenodo and codemeta metadata"
+          git push
