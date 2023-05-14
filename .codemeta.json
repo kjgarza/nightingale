@@ -1,6 +1,15 @@
 {
-  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@context": "https://doi.org/10.5063/SCHEMA/CODEMETA-2.0",
   "@type": "SoftwareSourceCode",
+  "name": "nightingale",
+  "description": "A Python package for prioritizing GitHub issues using the Command pattern",
+  "programmingLanguage": "Python",
+  "keywords": [
+    "GitHub",
+    "issues",
+    "Command pattern"
+  ],
+  "license": "https://opensource.org/licenses/MIT",
   "author": [
     {
       "@id": "https://orcid.org/0000-0003-3484-6875",
@@ -9,8 +18,6 @@
       "givenName": "Kristian"
     }
   ],
-  "identifier": "https://doi.org/10.5281/zenodo.10f3156",
-  "name": "nightingale",
   "url": "https://github.com/kjgarza/nightingale",
   "version": "0.0.1"
 }
