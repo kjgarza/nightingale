@@ -13,7 +13,6 @@ class AcceptIssuesCommand:
 
     def execute(self):
         issues = []
-        print(self.input_file)
         if self.input_file.startswith("http"):
             # Download the CSV file from the URL
             response = requests.get(self.input_file)

@@ -55,7 +55,6 @@ def array_to_csv(issues):
 #    array_to_csv(issues)
 
 def nightingale(input):
-   print(input)
    issues = AcceptIssuesCommand(input).execute()
    issues = PrioritizeIssuesCommand(issues).execute()
    DisplayPrioritizedIssuesCommand(issues).execute()
