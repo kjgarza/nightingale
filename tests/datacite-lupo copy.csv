@@ -1,0 +1,23 @@
+782	`relatedItems` is erroring when `publicationYear` is not supplied	bug	about 18 days ago
+764	REST API does not return optional affiliation properties	bug	about 1 month ago
+752	Citations and References counts when using `cites` and `isCitedby` are wrongly computed.	bug	about 6 months ago
+742	API lists person-id as possible query attribute for dois but doesn't work	wontfix, bug	about 1 month ago
+739	TypeError: no implicit conversion of nil into String	wontfix, bug	about 1 month ago
+734	Citations do not always properly show up in DataCite Commons	bug	about 5 months ago
+732	GraphQL paging over related people for an organisation generates erro	wontfix, bug	about 1 month ago
+730	Aws::SQS::Errors::NonExistentQueue: The specified queue does not exist for this wsdl version.	wontfix, bug	about 1 month ago
+729	Content negotiation doesn't redirect to doi url on unknown content requests when doi is unpublished (registered)	wontfix, bug	about 1 month ago
+725	More specific permissions for consortium leads regarding contacts	wontfix, bug	about 1 month ago
+713	Optionally include DOI metadata in Event Data queries	wontfix, bug	about 1 month ago
+695	Retrieving a random sample of DOIs - page[size] does not paginate the result-set	wontfix, bug	about 7 months ago
+692	NoMethodError: undefined method `join' for nil:NilClass	wontfix, bug	about 1 month ago
+679	Citation counts in GraphQL are not shown as expected	bug	about 1 month ago
+678	Authentication challenge headers not sent	wontfix, bug	about 7 months ago
+662	Citations counts differ between `works` and `work`	bug	about 1 month ago
+652	Event occured_at should reflect publication date	bug	about 3 months ago
+637	Citations list differ for the same DOI when calling directly the resource and calling the listing the resources from other type.	bug	about 6 months ago
+621	TypeError: no implicit conversion of Integer into String	wontfix, bug	about 1 month ago
+586	Failed to parse date field [1941-06] with format [strict_date_optional_time||epoch_millis]	wontfix, bug	about 1 month ago
+579	Allow update of URL regardless of metadata schema version	wontfix, bug	about 1 month ago
+550	Incorrect landing page metadata causing indexing problems	wontfix, bug	about 1 month ago
+485	Re-import metadata with missing schema_version in ES index	bug	about 1 month ago
