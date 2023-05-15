@@ -9,11 +9,11 @@ Uses a [binary insert sort](https://en.wikipedia.org/wiki/Insertion_sort) to pri
 
 ```shell
 
-python nightingale.py
+python -m nightingale.cli issues.csv
 
-Is A more importan than B?
-A:  ['MLA citation format duplicates the publisher name for some DOIs\n']
-B:  ['Improve error message from json api\n']
-T
+Which issue is more important?
+1. 782  `relatedItems` is erroring when `publicationYear` is not supplied       bug     about 18 days ago
+2. 764  REST API does not return optional affiliation properties        bug     about 1 month ago
+Enter 1 or 2:
 
 ```
