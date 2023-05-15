@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="nightingale",
-    version="0.0.1",
+    version="0.1.0",
     description="A Python package for prioritizing GitHub issues using the Command pattern",
     author="Kristian Garza",
     author_email="kj.garza@gmail.com",

@@ -1,0 +1,29 @@
+RelatedIdentifiers are limited to 25 in the metadata form
+Letter symbol import PID Graph
+Fabrica won't display errors when editing DOI draft with issuesScholix website doesn't work https
+"Field ""Publication year"" does not allow year year greater than 2021"
+Password reset still has intermittent problems
+Fabrica/Salesforce DOI numbers synch
+UTF-8 a Characters not displaying correctly in Fabrica
+Search for a specific DOI in DataCite Commons generates an error
+Lupo needs to set include_deleted flag in some elastic search queries.
+MLA citation format duplicates the publisher name for some DOIs
+API requests for a single DOI (GraphQL and REST) are very slow
+Improve error message from json api
+Attaching an issue name in the seriesInformation breaks the citation style
+valueUri and schemeUri searches with asterisk generate error in DataCite Commons
+Fractional dates are not returned via the API
+Links to ORCID profiles don't work if the nameIdentifier format does not include the full URL
+The work type facet in DataCite Commons does not match the total number of records
+Click through citation to related resource in Commons not working
+Some ORCIDs are generating an error in Commons and Graph QL
+MDS gives 204 content not found for DOIs in findable state
+Citation formats not being generated for DataCite DOIs
+A Crossref DOI generates a 401 error in Commons
+Sitemaps not being exposed
+Creator metadata registered in XML is reformatted in json so all words start with upper case letters
+APA citation format is inconsistent
+Content negotiation on DOIs returns 50x HTTP status
+Citation not appearing in the Graph QL/Commons for DOI with correct relatedIdentifiers metadata
+IsCitedBy creates reference instead of citation
+Events for a new citation are not available via the API

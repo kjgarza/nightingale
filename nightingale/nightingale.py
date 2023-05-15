@@ -1,3 +1,8 @@
+import os
+from .accept_issues_command import AcceptIssuesCommand
+from .command import PrioritizeIssuesCommand
+from .display_prioritized_issues_command import DisplayPrioritizedIssuesCommand
+
 # sort
 def insertion_sort(arr):
    for i in range(1, len(arr)):
@@ -9,8 +14,8 @@ def insertion_sort(arr):
 
 def judge(optionA, optionB ):
    print("Is A more important than B? ")
-   print("A: ",optionA)
-   print("B: ",optionB)
+   print("A: ",optionA[0].replace('\t', ' '))
+   print("B: ",optionB[0].replace('\t', ' '))
    return input()
 
 def binary_search(arr, key, start, end):
@@ -30,7 +35,9 @@ def binary_search(arr, key, start, end):
 def get_issues_array():
    issues = []
    ## gh issue list -l "bug" 
-   with open('issues.csv', 'r') as f:
+   ## one needs to be authnethicated in gh
+   os.system('gh issue list -l "bug"' + ' > issues_in.csv')
+   with open('issues_in.csv', 'r') as f:
       for line in f:
          issues.append(line.split(','))
    return issues
@@ -41,12 +48,16 @@ def array_to_csv(issues):
          f.write(','.join(issue))
 
 
-def main():
-   issues = get_issues_array() 
-   insertion_sort(issues)
-   print("Done, look for the csvs in the same folder")
-   array_to_csv(issues)
+# def main():
+#    issues = get_issues_array() 
+#    insertion_sort(issues)
+#    print("Done, look for the csvs in the same folder")
+#    array_to_csv(issues)
 
+def nightingale(input):
+   issues = AcceptIssuesCommand(input).execute()
+   issues = PrioritizeIssuesCommand(issues).execute()
+   DisplayPrioritizedIssuesCommand(issues).execute()
 
 def test():
    issues = ["high", "extreamly Low",  "medium", "extreamly high","low"]
@@ -56,4 +67,3 @@ def test():
    for i in range(n):
       print(issues[i],end=" ")
 
-main()

@@ -1,0 +1,6 @@
+782	`relatedItems` is erroring when `publicationYear` is not supplied	bug	about 18 days ago
+764	REST API does not return optional affiliation properties	bug	about 1 month ago
+752	Citations and References counts when using `cites` and `isCitedby` are wrongly computed.	bug	about 6 months ago
+742	API lists person-id as possible query attribute for dois but doesn't work	wontfix, bug	about 1 month ago
+739	TypeError: no implicit conversion of nil into String	wontfix, bug	about 1 month ago
+734	Citations do not always properly show up in DataCite Commons	bug	about 5 months ago
