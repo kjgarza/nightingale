@@ -18,19 +18,34 @@ def judge(optionA, optionB ):
    print("B: ",optionB[0].replace('\t', ' '))
    return input()
 
-def binary_search(arr, key, start, end):
-   #key
-   if end - start <= 1:
-      if judge(arr[start],key) == 'T':
-         return start - 1
-      else:
-         return start\
+# def binary_search(arr, key, start, end):
+#    #key
+#    if end - start <= 1:
+#       if judge(arr[start],key) == 'T':
+#          return start - 1
+#       else:
+#          return start\
 
-   mid = (start + end)//2
-   if judge(key,arr[mid]) == 'T':
-      return binary_search(arr, key, mid, end)
-   else:
-      return binary_search(arr, key, start, mid)
+#    mid = (start + end)//2
+#    if judge(key,arr[mid]) == 'T':
+#       return binary_search(arr, key, mid, end)
+#    else:
+#       return binary_search(arr, key, start, mid)
+
+def binary_search(arr, key):
+    start = 0
+    end = len(arr)
+    
+    while start < end:
+        mid = (start + end) // 2
+        result = judge(key, arr[mid])
+        
+        if result == 'T':
+            end = mid
+        else:
+            start = mid + 1
+
+    return start
 
 def get_issues_array():
    issues = []

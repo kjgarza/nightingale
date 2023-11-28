@@ -39,13 +39,36 @@ class PrioritizeIssuesCommand(Command):
     def __init__(self, issues):
         self.issues = issues
 
-    def execute(self):
-        for i in range(1, len(self.issues)):
-            j = i-1
-            key = self.issues[i]
-            while (j >= 0) and (CompareIssuesCommand(self.issues[j], key).execute() == key):
-                self.issues[j+1] = self.issues[j]
-                j -= 1
-            self.issues[j+1] = key
-        return self.issues
+    # def execute(self):
+    #     for i in range(1, len(self.issues)):
+    #         j = i-1
+    #         key = self.issues[i]
+    #         while (j >= 0) and (CompareIssuesCommand(self.issues[j], key).execute() == key):
+    #             self.issues[j+1] = self.issues[j]
+    #             j -= 1
+    #         self.issues[j+1] = key
+    #     return self.issues
     
+    def binary_search(self, arr, key, start, end):
+        if start == end:
+            if CompareIssuesCommand(arr[start], key).execute() == key:
+                return start - 1
+            else:
+                return start
+
+        mid = (start + end) // 2
+        comparison = CompareIssuesCommand(arr[mid], key).execute()
+        if comparison != key:
+            return self.binary_search(arr, key, mid + 1, end)
+        elif comparison == key:
+            return self.binary_search(arr, key, start, mid)
+        else:
+            return mid
+
+    def execute(self):
+        print("Prioritizing values...")
+        for i in range(1, len(self.issues)):
+            key = self.issues[i]
+            j = self.binary_search(self.issues, key, 0, i)
+            self.issues = self.issues[:j] + [key] + self.issues[j:i] + self.issues[i+1:]
+        return self.issues
