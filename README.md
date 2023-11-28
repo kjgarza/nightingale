@@ -1,7 +1,11 @@
 # Nightingale - Bug prioritizer
 
-This package utilizes binary insert sort to prioritize bugs from GitHub issues. The goal is to facilitate the task of issue tracking and bug fixing by bringing the most important issues to the forefront.
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.6%2B-blue)](https://www.python.org/downloads/)
+[![GitHub issues](https://img.shields.io/github/issues/kjgarza/nightingale)](https://github.com/kjgarza/nightingale/issues)
+[![GitHub stars](https://img.shields.io/github/stars/kjgarza/nightingale)](https://github.com/kjgarza/nightingale/stargazers)
 
+This package utilizes binary insert sort to prioritize bugs from GitHub issues. The goal is to facilitate the task of issue tracking and bug fixing by bringing the most important issues to the forefront.
 
 ![](https://raw.githubusercontent.com/kjgarza/nightingale/master/nigthtingale_logo.png)
 
@@ -9,19 +13,16 @@ This package utilizes binary insert sort to prioritize bugs from GitHub issues. 
 
 To use this tool, you should have Python installed on your machine. This tool is compatible with Python 3.6 and above.
 
-
 ## Usage
 
 1. Generate a list of bugs from GitHub into a CSV file named `issues.csv`. This CSV file should contain the names and links of the issues.
 
 2. Run the command-line interface (CLI) tool using the `python -m nightingale.cli` command followed by the appropriate arguments.
 
-
 Arguments:
 - `<input>`: The path to the CSV file with GitHub issues names and links or URL to GitHub repo issue list.
 - `-o, --output <output>`: (Optional) The path to the output file where the prioritized issues will be stored. If not specified, the output will be printed to the console.
 - `-v, --verbose`: (Optional) Enable verbose output.
-
 
 ```shell
 
@@ -43,4 +44,3 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
