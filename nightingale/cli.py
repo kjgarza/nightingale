@@ -1,78 +1,61 @@
-import argparse
-import sys
+import click
+import csv
 from nightingale import nightingale
 
 
-def print_help():
-    """Display comprehensive help information for the nightingale CLI."""
-    help_text = """
-Nightingale - GitHub Issues Prioritizer
-========================================
+@click.command()
+@click.argument('input', type=str)
+@click.option('-o', '--output', type=str, help='Output file for prioritized issues')
+@click.option('-v', '--verbose', is_flag=True, help='Print verbose output')
+def main(input, output, verbose):
+    """Nightingale - GitHub Issues Prioritizer
+    
+    Prioritize GitHub issues using interactive comparisons.
+    
+    INPUT: CSV file with GitHub issues names and links or URL to GitHub repo issue list
+    
+    \b
+    Examples:
+        nightingale issues.csv
+        nightingale https://example.com/issues.csv
+        nightingale issues.csv -o prioritized.csv
+        nightingale issues.csv -v
+    
+    \b
+    How it works:
+        The tool will present you with pairs of issues and ask you to choose
+        which one is more important. Based on your choices, it will build a
+        prioritized list using a binary insert sort algorithm.
+    
+        For each comparison, enter:
+        - '1' to select the first issue as more important
+        - '2' to select the second issue as more important
+    """
+    if verbose:
+        click.echo(f"Processing issues from: {input}")
+        if output:
+            click.echo(f"Output will be saved to: {output}")
+    
+    try:
+        issues = nightingale.nightingale(input)
+        
+        if output:
+            # Save to file if output is specified
+            with open(output, 'w', newline='') as f:
+                writer = csv.writer(f)
+                for issue in issues:
+                    writer.writerow([issue])
+            if verbose:
+                click.echo(f"Prioritized issues saved to: {output}")
+        elif verbose:
+            click.echo("Prioritization complete!")
+    except FileNotFoundError as e:
+        click.echo(f"Error: File not found - {input}", err=True)
+        raise click.Abort()
+    except Exception as e:
+        click.echo(f"Error: {e}", err=True)
+        raise click.Abort()
 
-A tool to prioritize GitHub issues using binary insert sort algorithm.
-
-USAGE:
-    nightingale <input> [OPTIONS]
-    nightingale help
-
-COMMANDS:
-    help                    Display this help information
-
-ARGUMENTS:
-    <input>                 CSV file with GitHub issues names and links 
-                           or URL to GitHub repo issue list
-
-OPTIONS:
-    -o, --output <file>    Output file for prioritized issues
-    -v, --verbose          Print verbose output
-    -h, --help             Show help message and exit
-
-EXAMPLES:
-    # Prioritize issues from a local CSV file
-    nightingale issues.csv
-
-    # Prioritize issues from a URL
-    nightingale https://example.com/issues.csv
-
-    # Save prioritized issues to a file
-    nightingale issues.csv -o prioritized.csv
-
-    # Run with verbose output
-    nightingale issues.csv -v
-
-HOW IT WORKS:
-    The tool will present you with pairs of issues and ask you to choose
-    which one is more important. Based on your choices, it will build a
-    prioritized list using a binary insert sort algorithm.
-
-    For each comparison, enter:
-    - '1' to select the first issue as more important
-    - '2' to select the second issue as more important
-
-For more information, visit: https://github.com/kjgarza/nightingale
-"""
-    print(help_text)
-
-
-def main():
-    # Check if 'help' command is provided
-    if len(sys.argv) > 1 and sys.argv[1] == 'help':
-        print_help()
-        sys.exit(0)
-
-    parser = argparse.ArgumentParser(
-        description="Prioritize GitHub issues using interactive comparisons",
-        epilog="Use 'nightingale help' for more detailed information"
-    )
-
-    parser.add_argument("input", help="CSV file with GitHub issues names and links or URL to GitHub repo issue list")
-    parser.add_argument("-o", "--output", help="Output file for prioritized issues")
-    parser.add_argument("-v", "--verbose", action="store_true", help="Print verbose output")
-
-    args = parser.parse_args()
-    nightingale.nightingale(args.input)
-
-    print(args)
 
 if __name__ == "__main__":
     main()
