@@ -71,8 +71,12 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# pyenv
-.python-version
+# pyenv and uv
+# .python-version is now tracked for uv package manager
+
+# uv
+.uv/
+uv.lock
 
 # celery beat schedule file
 celerybeat-schedule

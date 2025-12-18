@@ -1,7 +1,7 @@
 # Nightingale - Bug prioritizer
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.6%2B-blue)](https://www.python.org/downloads/)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/downloads/)
 [![GitHub issues](https://img.shields.io/github/issues/kjgarza/nightingale)](https://github.com/kjgarza/nightingale/issues)
 [![GitHub stars](https://img.shields.io/github/stars/kjgarza/nightingale)](https://github.com/kjgarza/nightingale/stargazers)
 
@@ -11,13 +11,50 @@ This package utilizes binary insert sort to prioritize bugs from GitHub issues. 
 
 ## Prerequisites
 
-To use this tool, you should have Python installed on your machine. This tool is compatible with Python 3.6 and above.
+To use this tool, you should have Python installed on your machine. This tool is compatible with Python 3.8 and above.
+
+## Installation
+
+This project uses [uv](https://github.com/astral-sh/uv) for fast, reliable Python package management.
+
+### Install uv
+
+```shell
+# On macOS and Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# On Windows
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### Install the package
+
+```shell
+# Clone the repository
+git clone https://github.com/kjgarza/nightingale.git
+cd nightingale
+
+# Create a virtual environment and install dependencies
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install the package in editable mode
+uv pip install -e .
+
+# Or install with development dependencies
+uv pip install -e ".[dev]"
+```
+
+Alternatively, you can still use pip if preferred:
+```shell
+pip install -e .
+```
 
 ## Usage
 
 1. Generate a list of bugs from GitHub into a CSV file named `issues.csv`. This CSV file should contain the names and links of the issues.
 
-2. Run the command-line interface (CLI) tool using the `python -m nightingale.cli` command followed by the appropriate arguments.
+2. Run the command-line interface (CLI) tool using the `nightingale` command or `python -m nightingale.cli` followed by the appropriate arguments.
 
 Arguments:
 - `<input>`: The path to the CSV file with GitHub issues names and links or URL to GitHub repo issue list.
@@ -25,7 +62,10 @@ Arguments:
 - `-v, --verbose`: (Optional) Enable verbose output.
 
 ```shell
+# Using the installed command
+nightingale issues.csv
 
+# Or using Python module directly
 python -m nightingale.cli issues.csv
 
 Which issue is more important?
