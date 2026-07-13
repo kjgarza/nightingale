@@ -101,6 +101,19 @@ ENV/
 # mypy
 .mypy_cache/
 
+# Ruff
+.ruff_cache/
+
+# UV
+.uv/
+
 # IDE settings
 .vscode/
 .idea/
+
+# macOS
+.DS_Store
+
+# Test output
+test_output/
+*.csv
